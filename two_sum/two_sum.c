@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int * getIndexes(int * nums, int target){
 	int i,j;
 	int candidate;
 	int complement;
-	int result[2];
+	int *result[2] = (int *)calloc(2, sizeof(int));
 
 	for(i=0; i<len-1; i++){
 		if(nums[i] >= target){
@@ -26,19 +27,4 @@ int * getIndexes(int * nums, int target){
 	}
 
 	return NULL;
-}
-
-int main(){
-
-	int nums[] = {2,7,11,15};
-	int len = 4;
-	int target = 9;
-	int *result = getIndexes(nums,len,target);
-
-	if(resutl != NULL && nums[result[0]] + nums[result[1]] == target){
-		printf("works");
-	} else {
-		printf(":(\n");
-	}
-	return 0;	
 }
