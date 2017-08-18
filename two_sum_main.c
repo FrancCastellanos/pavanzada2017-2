@@ -1,4 +1,4 @@
-#include <stdio.h>
+	#include <stdio.h>
 #inclide "two_sum.h"
 
 int main(){
