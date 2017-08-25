@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "minunit.h"
-#include "two_sum.h"
+#include "calculate_days.h"
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -15,16 +15,25 @@
 int testsRun = 0;
 
 static char * testUnit() {
-  int nums[] = {2,7,11,15};
-  int len = 4;
-  int target = 13;
-  int *result = getIndexes(nums,len,target);
-  muAssert("error, test failure", nums[result[0]] + nums[result[1]] == target);
+  Month month = Feb;
+  int monthDay = 28;
+  int expected = 59;
+  int result = calculateDays(month, monthDay);
+  muAssert("Number of days must be 20", expected == expected);
+  return 0;
+}
+
+static char * testYear() {
+  int year = 2016;
+  int expected = 1;
+  int result = isLeapYear(year,monthDay);
+  muAssert("2016 is leap", expected == result);
   return 0;
 }
 
 static char * allTests() {
   muRunTest(testUnit);
+  muRunTest(testYear);
   return 0;
 }
 
