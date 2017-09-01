@@ -2,21 +2,25 @@
 #include <stdio.h>
 #include "calculate_days.h"
 
-int calculateDays(Month currentMonth, int monthDay){
+int calculateDays(Month currentMonth, int monthDay, int currentYear){
 
 	int daysPerMonth[] = {31,  28,  31,  30,  31,  30,  31,  31,   30,  31,  30,  31};
-	assert(monthDay >= 1 || monthDay <= daysPerMonth[currentMonth]);
 	assert(year > 0);
-
 	int days = 0;
+
 	Month i;
+	
+	if(isLeapYear){
+		days + 1;
+	}
+
+	assert(monthDay >= 1 || monthDay <= daysPerMonth[currentMonth]);
+
 	for(i=Jan;i++){
 		days += daysPerMonth[i];
 	}
 
-	if(isLeapYear){
-		days + 1;
-	}
+
 	return days;
 }
 
