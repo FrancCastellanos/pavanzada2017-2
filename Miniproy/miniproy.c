@@ -1,10 +1,6 @@
 #import <stdio.h>
 #import <stdlib.h>
 
-
-int cp(const void*a,const void*b){
-    return *(int*)a>*(int*)b;
-}
 int arrayPairSum(int* nums, int numsSize) {
 	int compare_int( const void* a, const void* b ) {
         return *(int*)a>*(int*)b;
