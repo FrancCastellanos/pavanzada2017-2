@@ -1,0 +1,2 @@
+int constructor(char *, char *);
+
