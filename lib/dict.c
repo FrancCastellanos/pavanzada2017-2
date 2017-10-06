@@ -32,8 +32,7 @@ static unsigned hash(char *s, unsigned int size)
     return hashval % size;
 }
 
-void upsertDictionary(Dict *dictionary, char *key, void *value, int size, int *errorCode)
-{
+void upsertDictionary(Dict *dictionary, char *key, void *value, int size, int *errorCode){
     if (dictionary == NULL)
     {
         *errorCode = 100;
@@ -94,6 +93,9 @@ void * getDictionary(Dict *dictionary,char *key,int size, int *errorCode) {
     }
 
     int index = hash(key, dictionary->size);
+    if(dictionary->elements[index].key == 0){
+        return NULL;
+    }
     void *result = malloc(size);
     if(result == NULL){
         *errorCode = 100;
