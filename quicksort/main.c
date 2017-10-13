@@ -9,14 +9,14 @@ typedef struct s{
 }Student;
 
 /* Add function signatures here */
-int cmpNames( void *element1, void *element2){
+int cmpNames(void *element1, void *element2){
 	Student student1 = (Student *) element1;
 	Student student2 = (Student *) element2;
 
 	return strcmp(student1->name, student2->name);
 }
 
-int cmpMatriculas( void *element1, void *element2){
+int cmpMatriculas( void const *element1, void const *element2){
 	Student student1 = (Student *) element1;
 	Student student2 = (Student *) element2;
 
