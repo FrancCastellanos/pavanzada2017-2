@@ -25,8 +25,15 @@ void *lifeStyle(void *threadid) {
     while(1){
     	thinking(3);
     	printf("I am phil %lu, I am hungry \n", tid);
-    	sem_wait(&forks [tid]);
-    	sem_wait(&forks [(tid + 1) %NUM_THREADS]);
+    	if(tid % 2 == 0){
+    		sem_wait(&forks [tid]);
+    		sem_wait(&forks [(tid + 1) %NUM_THREADS]);
+        } else {
+        	sem_wait(&forks [(tid + 1) %NUM_THREADS]);
+        	sem_wait(&forks [tid]);
+        }
+
+
     	eating(4);
     	sem_post(&forks [tid]);
     	sem_post(&forks [(tid + 1) %NUM_THREADS]);
